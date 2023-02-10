@@ -76,12 +76,14 @@ function spawnEnemies(enemyCount) {
 
 const buildings = []
 let activeTile = undefined
+
 let waveToken = 1
+let hearts = 10
 spawnEnemies(waveToken)
 
 // infinite loop that keeps repeating to update the enemy position
 function animate() {
-    requestAnimationFrame(animate)
+    const animationId = requestAnimationFrame(animate)
 // draws new image on loop
     context.drawImage(map1, 0 , 0)
 
@@ -90,8 +92,16 @@ for (let i = enemies.length - 1; i >= 0; i--){
     enemy.update()
 
     if (enemy.position.x > canvas.width) {
-        console.log(`decrease hearts`)
+        hearts -= 1
         enemies.splice(i , 1)
+        console.log(hearts)
+
+        if (hearts === 0) {
+            //cancel all animations
+            cancelAnimationFrame(animationId)
+            // display hidden gameover text from the style sheet
+            document.querySelector(`#gameOver`).style.display = `flex`
+        } 
     }
 }
     //determines after enemies are gone then spawn more enemies and increase counter
