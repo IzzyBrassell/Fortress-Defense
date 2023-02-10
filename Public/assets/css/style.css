@@ -2,3 +2,29 @@ body {
     /* adds dirt color to background */
     background-color: #9b7653;
 }
+.GameOver {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    /* adjust for increase of map size due to UI increase */
+    bottom: 132;
+    left: 0;
+    right: 0;
+    font-size: 120px;
+    font-family: 'Chicle', cursive;
+    color: rgb(136, 8, 8);
+    -webkit-text-stroke: 3px black;
+}
+/* parent display */
+#screen{
+    position: relative;
+    display: inline-block;
+}
+.hearts{
+    position:absolute;
+    top: 4px;
+    right: 8px;
+    font-size: 25px;
+}
