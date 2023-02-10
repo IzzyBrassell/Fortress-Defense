@@ -1,5 +1,10 @@
-const express = require('express');
+const express = require('express')
+const _ = require('underscore')
 const path = require('path');
-const PORT = 3001;
 
-const app = express()
+const app = express();
+const PORT = process.env.PORT || 5800;
+
+app.listen(PORT, () => {
+    console.log(`now listening on port ${PORT}`)
+} )
