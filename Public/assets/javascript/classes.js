@@ -41,6 +41,12 @@ class Enemy {
             x: 0,
             y: 0
         }
+        // if (waveToken % 10 === 0) {
+        //     this.Enemy.health = this.Enemy.health *1,2
+        //     }
+        // if (waveToken % 20 === 0) {
+        //     this.Enemy.speed = this.Enemy.speed *1.1
+        //     }
     }
     // draws the enemy
     draw() {
@@ -171,5 +177,42 @@ class Building {
         }
 
         this.frames++
+    }
+}
+
+
+class Speedster extends Enemy {
+    constructor({position = {x:0 , y:0 }}){
+        super(position)
+        this.Enemy.health = 100
+        this.Enemy.speed = enemySpeed * 1.2
+
+  
+    }
+    draw() {
+        
+        context.fillStyle = `violet`
+        // context.fillRect(this.position.x, this.position.y , this.width, this.height)
+        context.beginPath()
+        context.arc(this.center.x, this.center.y, this.radius, 0 , Math.PI * 2)
+        context.fill()
+    }
+}
+
+class Tank extends Enemy {
+    constructor({position = {x:0 , y:0 }}){
+        super(position)
+    this.Enemy.health = 200
+    this.Enemy.speed = enemySpeed * 1
+
+    
+    }
+    draw() {
+        
+        context.fillStyle = `black`
+        // context.fillRect(this.position.x, this.position.y , this.width, this.height)
+        context.beginPath()
+        context.arc(this.center.x, this.center.y, this.radius, 0 , Math.PI * 2)
+        context.fill()
     }
 }
