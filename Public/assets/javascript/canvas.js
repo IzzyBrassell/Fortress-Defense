@@ -44,22 +44,42 @@ map1.src = `assets/Img/Gamemap.png`
 //pushes a new enemy in the enemy array
 const enemies = []
 
-function spawnEnemies(spawnCount) {
-    // need i to equal 1 instead of 0 due to the first two positions not spacing correctly
-    for (let i = 1; i < spawnCount + 1; i++) {
-    //offsets the position of the enemy behind older enemy
-        const xOffset = i * 50
+
+function spawnEnemies(enemyCount) {
+    for (let i = 0; i < 10 + enemyCount; i++) {
+        //offsets the position of the enemy behind older enemy
+        const xOffset = i * 200
+       if (i < 15 ) {
         enemies.push(new Enemy({
-        position: {x: waypoints[0].x - xOffset, y: waypoints[0].y }
-    }))
-}
-}
+            position: {x: waypoints[0].x - xOffset, y: waypoints[0].y }
+        }))
+       } else if (i >= 15 && i < 25) {
+        enemies.push(new Speedster({
+            position: {x: waypoints[0].x - xOffset, y: waypoints[0].y }
+        }))
+        enemies.push(new Enemy({
+            position: {x: waypoints[0].x - xOffset, y: waypoints[0].y }
+        }))
+       } else {
+        enemies.push(new Enemy({
+            position: {x: waypoints[0].x - xOffset, y: waypoints[0].y }
+        }))
+        enemies.push(new Speedster({
+            position: {x: waypoints[0].x - xOffset, y: waypoints[0].y }
+        }))
+        enemies.push(new Tank({
+            position: {x: waypoints[0].x - xOffset, y: waypoints[0].y }
+        }))
+       }
+    }}
+    
 
 const buildings = []
 let activeTile = undefined
-let enemyCount = 3
+
+let waveToken = 1
 let hearts = 10
-spawnEnemies(enemyCount)
+spawnEnemies(waveToken)
 
 // infinite loop that keeps repeating to update the enemy position
 function animate() {
@@ -86,8 +106,8 @@ for (let i = enemies.length - 1; i >= 0; i--){
 }
     //determines after enemies are gone then spawn more enemies and increase counter
     if (enemies.length === 0) {
-        enemyCount += 2
-        spawnEnemies(enemyCount)
+        waveToken++
+        spawnEnemies(waveToken)
     }
 
 
