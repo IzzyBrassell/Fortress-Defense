@@ -1,3 +1,4 @@
+// represents the points where enemy units will path
 const waypoints = [
                         {
                          "x":-120,
