@@ -3,6 +3,9 @@ const _ = require('underscore')
 const path = require('path');
 const sequelize = require('./config/connection');
 
+const Book = require('./models/Book');
+
+
 const app = express();
 const PORT = process.env.PORT || 5800;
 
