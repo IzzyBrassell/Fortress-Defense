@@ -25,6 +25,23 @@ body {
 .hearts{
     position:absolute;
     top: 4px;
-    right: 8px;
-    font-size: 25px;
+    left: 0px;
+    font-size: 40px;
+    color: red;
+    font-family: 'Chicle', cursive;
+    -webkit-text-stroke: 3px black;
+}
+.money{
+    position:absolute;
+    top: 54px;
+    left: 8px;
+    font-size: 40px;
+    color: green;
+    font-family: 'Chicle', cursive;
+    -webkit-text-stroke: 3px black;
+}
+.fa-money{
+    color:green;
+    margin-right: 8px;
+    font-size: 40px;
 }

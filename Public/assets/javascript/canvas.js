@@ -59,6 +59,8 @@ const buildings = []
 let activeTile = undefined
 let enemyCount = 3
 let hearts = 10
+let money = 100
+const explosions = []
 spawnEnemies(enemyCount)
 
 // infinite loop that keeps repeating to update the enemy position
@@ -74,7 +76,8 @@ for (let i = enemies.length - 1; i >= 0; i--){
     if (enemy.position.x > canvas.width) {
         hearts -= 1
         enemies.splice(i , 1)
-        console.log(hearts)
+        //decrease the text to match the heart variable
+        document.querySelector(`#hearts`).innerHTML = `<span>&#128151;</span>${hearts}`
 
         if (hearts === 0) {
             //cancel all animations
@@ -84,6 +87,15 @@ for (let i = enemies.length - 1; i >= 0; i--){
         } 
     }
 }
+    for (let i = explosions.length - 1; i >= 0; i--){
+        const explosion = explosions[i]
+        explosion.draw()
+        explosion.update()
+
+        if(explosion.frames.current >= explosion.frames.x -1) {
+            explosions.splice(i, 1)
+        }
+    }
     //determines after enemies are gone then spawn more enemies and increase counter
     if (enemies.length === 0) {
         enemyCount += 2
@@ -119,14 +131,26 @@ for (let i = enemies.length - 1; i >= 0; i--){
             //removes the enemy and calculates damage
             if (distance < projectile.enemy.radius + projectile.radius){
                 projectile.enemy.health -= building.damage
+                console.log(projectile.enemy.health)
                 if(projectile.enemy.health <= 0) {
                     const enemyIndex = enemies.findIndex((enemy) => {
                         return projectile.enemy === enemy
                     })
                     //makes sure that random enemies arent removed before the projectile hits
-                    if (enemyIndex > -1) enemies.splice(enemyIndex, 1)
+                    if (enemyIndex > -1) {
+                        enemies.splice(enemyIndex, 1)
+                        money+= 25
+                        document.querySelector(`#money`).innerHTML = `<i class="fa fa-money" aria-hidden="true"></i>${money}`
+                    }
                 }
                 //removes the projectile
+                explosions.push(
+                    new Sprite({
+                        position: {x: projectile.position.x,  y: projectile.position.y}, 
+                        imgSrc: `assets/img/explosion.png`,
+                        frames: {x : 4}
+                      }
+                ))
                 building.projectiles.splice(i, 1)
             }
         }
@@ -139,7 +163,10 @@ const mouse = {
 }
 
 canvas.addEventListener(`click`, (event) => {
-    if(activeTile && !activeTile.isOccupied){
+    //build if not occupied and if have more than 50 cash
+    if(activeTile && !activeTile.isOccupied && money - 50 >= 0){
+        money -= 50
+        document.querySelector(`#money`).innerHTML = `<i class="fa fa-money" aria-hidden="true"></i>${money}`
         buildings.push(new Building({
             position:{
                 x: activeTile.position.x,
