@@ -15,6 +15,12 @@ app.listen(PORT, () => {
     console.log(`now listening on port ${PORT}`)
 } )
 
+const startPaths = ['/' , '/start', '/menu']
+
+app.get(startPaths, (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/start.html"))
+})
+
 app.get('/game', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/game.html'))
 })
