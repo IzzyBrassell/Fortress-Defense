@@ -24,3 +24,15 @@ app.get(startPaths, (req, res) => {
 app.get('/game', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/game.html'))
 })
+
+app.get('/options', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/options.html'))
+})
+
+app.get('/auth', (req, res) =>{
+    res.sendFile(path.join(__dirname, '/public/auth.html'))
+})
+
+app.get('/score', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/highscore.html'))
+})
