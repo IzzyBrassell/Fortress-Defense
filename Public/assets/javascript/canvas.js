@@ -72,7 +72,6 @@ function spawnEnemies(enemyCount) {
         }))
        }
     }
-    const shuffledArray = enemies.sort((a, b) => 0.5 - Math.random())
 }
 let waveToken = 1
 
@@ -153,7 +152,6 @@ for (let i = enemies.length - 1; i >= 0; i--){
             //removes the enemy and calculates damage
             if (distance < projectile.enemy.radius + projectile.radius){
                 projectile.enemy.health -= building.damage
-                console.log(projectile.enemy.health)
                 if(projectile.enemy.health <= 0) {
                     const enemyIndex = enemies.findIndex((enemy) => {
                         return projectile.enemy === enemy
