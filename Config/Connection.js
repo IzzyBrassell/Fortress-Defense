@@ -1,10 +1,6 @@
-const express = require('express')
-const _ = require('underscore')
-const path = require('path');
+const Sequelize = require('sequelize');
+require('dotenv').config();
 
-const app = express();
-const PORT = process.env.PORT || 5800;
+const sequelize = new Sequelize(process.env.JAWDB_URL);
 
-app.listen(PORT, () => {
-    console.log(`now listening on port ${PORT}`)
-} )
+module.exports = sequelize;
