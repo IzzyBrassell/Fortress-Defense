@@ -8,11 +8,16 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Start Menu</title>
 </head>
-<body style ='background-image: url(./assets/image/Gamemap.png);'>
+<body style ='background-image: url(./assets/image/Gamemap.png);' class="body-or-whatever">
     <audio autoplay loop>
         <source src="sound/abandon_hope.mp3">
     </audio>
-    <a href="/game" class="btn btn-outline-danger center-button">SURVIVE</a>
-    <a href="/auth" class="btn btn-outline-warning center-button">SIGN IN</a> 
-    <a href="/score" class="btn btn-outline-warning center-button">LEADERBOARD</a></body>
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="container row d-inline-flex">
+            <a href="/auth" class="btn btn-outline-warning col">SIGN IN</a> 
+            <a href="/score" class="btn btn-outline-warning col">LEADERBOARD</a>
+            <a href="/game" class="btn btn-outline-danger col">SURVIVE</a>
+        </div>
+    </div>
+</body>
 </html>
