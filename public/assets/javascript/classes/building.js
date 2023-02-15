@@ -2,7 +2,7 @@ class Building extends Sprite{
     constructor({position = {x:0 , y:0 }}){
         super({
             position, 
-            imgSrc: `assets/img/BaseTower.png`,
+            imgSrc: `assets/image/BaseTower.png`,
             frames: {
                 x: 4
             }

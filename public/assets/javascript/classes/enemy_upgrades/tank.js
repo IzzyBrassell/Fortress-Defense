@@ -3,7 +3,7 @@ class Tank extends Sprite{
     constructor({position = {x: 0, y: 0} }){
         super({
             position, 
-            imgSrc: `assets/img/tank.png`,
+            imgSrc: `assets/image/tank.png`,
             frames: {
                 x: 4
             }
