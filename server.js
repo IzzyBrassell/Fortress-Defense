@@ -4,7 +4,7 @@ const sequelize = require('./config/connection');
 require('dotenv').config();
 
 
-const Score = require('./models/Score');
+// const Score = require('./models/Score');
 
 
 const app = express();
