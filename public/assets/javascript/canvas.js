@@ -40,7 +40,7 @@ const map1 = new Image()
 map1.onload = () =>{
     context.drawImage(map1 , 0 , 0)
 }
-map1.src = `assets/Img/Gamemap.png`
+map1.src = `assets/image/Gamemap.png`
 // creates an enemy on a specific start point by x and y
 //pushes a new enemy in the enemy array
 const enemies = []
