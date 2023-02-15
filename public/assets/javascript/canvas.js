@@ -103,6 +103,7 @@ for (let i = enemies.length - 1; i >= 0; i--){
             cancelAnimationFrame(animationId)
             // display hidden gameover text from the style sheet
             document.querySelector(`#gameOver`).style.display = `flex`
+            document.querySelector(`.game-options`).style.display = `inline`
             highScore = waveToken
         } 
     }
