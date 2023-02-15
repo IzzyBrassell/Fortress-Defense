@@ -45,3 +45,17 @@
     margin-right: 8px;
     font-size: 40px;
 }
+
+.cus-font {
+    font-family: 'Rock Salt', cursive;
+    font-size: 50px;
+}
+.font-2 {
+    font-family: 'Rock Salt', cursive;
+    font-size: 20px;
+}
+
+.btn-font {
+    font-family: 'Rock Salt', cursive;
+    font-size: smaller;
+}
