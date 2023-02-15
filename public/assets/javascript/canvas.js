@@ -165,7 +165,7 @@ for (let i = enemies.length - 1; i >= 0; i--){
                 explosions.push(
                     new Sprite({
                         position: {x: projectile.position.x,  y: projectile.position.y}, 
-                        imgSrc: `assets/img/explosion.png`,
+                        imgSrc: `assets/image/explosion.png`,
                         frames: {x : 4}
                       }
                 ))
