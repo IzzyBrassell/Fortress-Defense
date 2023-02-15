@@ -119,8 +119,6 @@ for (let i = enemies.length - 1; i >= 0; i--){
     if (enemies.length === 0) {
         waveToken++
         spawnEnemies(waveToken)
-        waveToken++
-        spawnEnemies(waveToken)
     }
 
 
