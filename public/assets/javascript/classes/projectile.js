@@ -3,7 +3,7 @@ class Projectile extends Sprite{
         //calls a constructor in the extended class
         super({
             position, 
-            imgSrc: `assets/img/tracer.png`,
+            imgSrc: `assets/image/tracer.png`,
             frames: {
                 x: 4
             }

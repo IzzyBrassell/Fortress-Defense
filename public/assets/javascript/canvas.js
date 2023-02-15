@@ -40,7 +40,7 @@ const map1 = new Image()
 map1.onload = () =>{
     context.drawImage(map1 , 0 , 0)
 }
-map1.src = `assets/Img/Gamemap.png`
+map1.src = `assets/image/Gamemap.png`
 // creates an enemy on a specific start point by x and y
 //pushes a new enemy in the enemy array
 const enemies = []
@@ -119,8 +119,6 @@ for (let i = enemies.length - 1; i >= 0; i--){
     if (enemies.length === 0) {
         waveToken++
         spawnEnemies(waveToken)
-        waveToken++
-        spawnEnemies(waveToken)
     }
 
 
@@ -167,7 +165,7 @@ for (let i = enemies.length - 1; i >= 0; i--){
                 explosions.push(
                     new Sprite({
                         position: {x: projectile.position.x,  y: projectile.position.y}, 
-                        imgSrc: `assets/img/explosion.png`,
+                        imgSrc: `assets/image/explosion.png`,
                         frames: {x : 4}
                       }
                 ))

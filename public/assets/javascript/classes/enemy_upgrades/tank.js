@@ -1,9 +1,9 @@
-class Speedster extends Sprite{
+class Tank extends Sprite{
     //let x and y be the start point of the enemy
     constructor({position = {x: 0, y: 0} }){
         super({
             position, 
-            imgSrc: `assets/img/fast.png`,
+            imgSrc: `assets/image/tank.png`,
             frames: {
                 x: 4
             }
@@ -18,7 +18,7 @@ class Speedster extends Sprite{
             y: this.position.y + this.height / 2
         }
         this.radius = 16
-        this.health = 150
+        this.health = 200
         this.velocity = {
             x: 0,
             y: 0
@@ -50,8 +50,8 @@ class Speedster extends Sprite{
         const angle = Math.atan2(yDistance, xDistance)
 
         //determines the speed
-        this.velocity.x = Math.cos(angle) * 2
-        this.velocity.y = Math.sin(angle) * 2
+        this.velocity.x = Math.cos(angle) * 1.5
+        this.velocity.y = Math.sin(angle) * 1.5
 
         // new position moves towards the angle of the first waypoint
         this.position.x += this.velocity.x
