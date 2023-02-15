@@ -26,4 +26,4 @@ Score.init(
     }
 );
 
-module.exports = Score;
+module.exports = { Score };
