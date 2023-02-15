@@ -2,18 +2,26 @@ const express = require('express')
 const _ = require('underscore')
 const path = require('path');
 const sequelize = require('./config/connection');
+require('dotenv').config();
 
-// const Book = require('./models/Book');
+const Book = require('./models/Score');
 
 
 const app = express();
-const PORT = process.env.PORT || 5800;
+const PORT = process.env.PORT || 3306;
 
 app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 
-app.listen(PORT, () => {
-    console.log(`now listening on port ${PORT}`)
-} )
+sequelize.sync({ force: false}).then(() => {
+    app.listen(PORT,() => console.log('Now listening'))
+});
+
+
+//app.listen(PORT, () => {
+    //console.log(`now listening on port ${PORT}`)
+//} )
 
 const startPaths = ['/' , '/start', '/menu']
 
