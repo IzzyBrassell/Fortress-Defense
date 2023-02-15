@@ -24,7 +24,7 @@ router.get('/score', withAuth, async (req, res) => {
   
       const users = userData.map((project) => project.get({ plain: true }));
   
-      res.render('/../public/highscore.html', {
+      res.sendFile(path.join(__dirname, '/../public/highscore.html'), {
         users,
         // Pass the logged in flag to the template
         logged_in: req.session.logged_in,
@@ -41,7 +41,7 @@ router.get('/score', withAuth, async (req, res) => {
       return;
     }
   
-    res.render('/../public/auth.html');
+    res.sendFile(path.join(__dirname, '/../public/auth.html'));
   });
 
   module.exports = router;
