@@ -91,11 +91,3 @@
 #back {
     display:flex;
 }
-.game-options{
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    float: right;
-    right:0;
-}

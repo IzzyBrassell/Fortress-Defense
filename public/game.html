@@ -16,7 +16,7 @@
         <div>Game Over</div>
     </div>
     <div class = "game-options">
-        <a href="/score" class="btn btn-outline-warning col">Save Score</a> 
+        <a id ="save-score" class="btn btn-outline-warning col">Save Score</a> 
         <a href="/start" class="btn btn-outline-warning col">Main Menu</a>
     </div>
     <div class = "hearts" id ="hearts">
@@ -36,4 +36,11 @@
 <script src= "./assets/javascript/classes/projectile.js"></script>
 <script src= "./assets/javascript/classes/building.js"></script>
 <script src= "./assets/javascript/canvas.js"></script>
+<script>
+    const saveScoreButton = document.querySelector(`#save-score`)
+    saveScoreButton.addEventListener("click" , () => {
+        // post your username and password and highscore to database
+        // redirect you to mainmenu or highscore
+    })
+</script>
 </body>

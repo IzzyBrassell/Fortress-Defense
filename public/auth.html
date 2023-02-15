@@ -20,7 +20,7 @@
         <label class = "text-danger-emphasis"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" required>
 
-        <a href="/start" class="btn btn-success">Submit</a> 
+        <a id = "sign-in-submit" class="btn btn-success">Submit</a> 
     </form>
     <form class="show position-absolute top-50 start-50 translate-middle increase-height">
         <label class = "text-danger-emphasis" for="signup-username"><b>Username</b></label>
@@ -50,21 +50,30 @@
     const signUpPassword = document.querySelector(`#sign-up-password`)
     const signUpUsername = document.querySelector(`#sign-up-username`)
     const fail = document.querySelector(`#fail`)
+    const signInSubmit = document.querySelector(`#sign-in-submit`)
 
-    signUpSubmit.addEventListener("click", () => {
+    // need async function?
+    signUpSubmit.addEventListener("click", async (event) => {
+        event.preventDefault()
         if (
-            signUpConfirmation.value === signUpPassword.value &&
-            signUpPassword.value.length >= 6 &&
-            signUpUsername.value.length >= 6
+            signUpConfirmation.value.trim() === signUpPassword.value.trim() &&
+            signUpPassword.value.length >= 5 &&
+            signUpUsername.value.length >= 5
         ){
-            signUpSubmit.href = "/start"
+            // await signUpPassword.value and signUpUsername.value to post on mysql
+            // then redirect to home page or start game
         } else {
-            fail.innerHTML = `Please make sure to have at least 6 characters in your username and password and that you have confirmed your password properly`
+            fail.innerHTML = `Please make sure to have at least 5 characters in your username and password and that you have confirmed your password properly`
         }
     })
 
     signUpButton.addEventListener("click" , () => {
-        hide.style.display = "none"
-        show.style.display = "inline"
+            hide.style.display = "none"
+            show.style.display = "inline"
+    })
+
+    signInSubmit.addEventListener("click" , () => {
+        //await to get information from database
+        // then redirect with data to home page or start game
         })
 </script>
