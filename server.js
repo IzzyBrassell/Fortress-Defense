@@ -34,7 +34,7 @@ app.get('/score', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/highscore.html'))
 })
 
-app.use(routes);
+// app.use(routes);
 
 
 sequelize.sync({ force: false }).then(() => {
