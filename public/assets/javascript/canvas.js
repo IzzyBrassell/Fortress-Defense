@@ -74,7 +74,7 @@ function spawnEnemies(enemyCount) {
     }
 }
 let waveToken = 1
-
+let highScore = 0
 const buildings = []
 let activeTile = undefined
 let hearts = 10
@@ -103,6 +103,7 @@ for (let i = enemies.length - 1; i >= 0; i--){
             cancelAnimationFrame(animationId)
             // display hidden gameover text from the style sheet
             document.querySelector(`#gameOver`).style.display = `flex`
+            highScore = waveToken
         } 
     }
 }
