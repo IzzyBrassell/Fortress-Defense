@@ -3,7 +3,7 @@ class Speedster extends Sprite{
     constructor({position = {x: 0, y: 0} }){
         super({
             position, 
-            imgSrc: `assets/img/fast.png`,
+            imgSrc: `assets/image/fast.png`,
             frames: {
                 x: 4
             }
