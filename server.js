@@ -4,7 +4,7 @@ const path = require('path');
 const sequelize = require('./config/connection');
 require('dotenv').config();
 
-const Book = require('./models/Score');
+const Score = require('./models/Score');
 
 
 const app = express();
