@@ -49,6 +49,9 @@
 .increase-height {
     padding-bottom: 100px;
 }
+.decrease-height {
+    padding-top: 100px;
+}
 .show{
     display:none;
 }
@@ -65,4 +68,34 @@
 .btn-font {
     font-family: 'Rock Salt', cursive;
     font-size: smaller;
+}
+#fail {
+    font-size: 20px;
+    color: red;
+}
+#back {
+    display:flex;
+}
+.game-options{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    float: right;
+    right:0;
+}
+#fail {
+    font-size: 20px;
+    color: red;
+}
+#back {
+    display:flex;
+}
+.game-options{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    float: right;
+    right:0;
 }

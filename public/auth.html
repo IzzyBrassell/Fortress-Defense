@@ -12,6 +12,7 @@
     <audio autoplay loop>
         <source src="sound/abandon_hope.mp3">
     </audio>
+    <div id = "fail" class="position-absolute top-50 start-50 translate-middle decrease-height"></div>
     <form class="hide position-absolute top-50 start-50 translate-middle increase-height">
         <label class = "text-danger-emphasis"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" required>
@@ -23,15 +24,15 @@
     </form>
     <form class="show position-absolute top-50 start-50 translate-middle increase-height">
         <label class = "text-danger-emphasis" for="signup-username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" required>
+        <input id ="sign-up-username" type="text" placeholder="Enter Username" required>
 
         <label class = "text-danger-emphasis"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" required>
+        <input id="sign-up-password" type="password" placeholder="Enter Password" required>
 
         <label class = "text-danger-emphasis"><b>Retype Password</b></label>
-        <input type="password" placeholder="Retype Password" required>
+        <input id="sign-up-confirmation" type="password" placeholder="Retype Password" required>
 
-        <a href="/start" class="btn btn-success">Submit</a> 
+        <a id = "sign-up-submit" class="btn btn-success">Submit</a> 
     </form>
     <div class="position-absolute top-50 start-50 translate-middle">
         <a id ="sign-up" class="btn btn-outline-warning col">Sign Up</a> 
@@ -44,6 +45,23 @@
     const signUpButton = document.querySelector(`#sign-up`)
     const hide = document.querySelector(`.hide`)
     const show = document.querySelector(`.show`)
+    const signUpSubmit = document.querySelector(`#sign-up-submit`)
+    const signUpConfirmation = document.querySelector(`#sign-up-confirmation`)
+    const signUpPassword = document.querySelector(`#sign-up-password`)
+    const signUpUsername = document.querySelector(`#sign-up-username`)
+    const fail = document.querySelector(`#fail`)
+
+    signUpSubmit.addEventListener("click", () => {
+        if (
+            signUpConfirmation.value === signUpPassword.value &&
+            signUpPassword.value.length >= 6 &&
+            signUpUsername.value.length >= 6
+        ){
+            signUpSubmit.href = "/start"
+        } else {
+            fail.innerHTML = `Please make sure to have at least 6 characters in your username and password and that you have confirmed your password properly`
+        }
+    })
 
     signUpButton.addEventListener("click" , () => {
         hide.style.display = "none"
