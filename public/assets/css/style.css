@@ -45,3 +45,9 @@
     margin-right: 8px;
     font-size: 40px;
 }
+.increase-height {
+    padding-bottom: 100px;
+}
+.show{
+    display:none;
+}

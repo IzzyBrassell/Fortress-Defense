@@ -12,8 +12,41 @@
     <audio autoplay loop>
         <source src="sound/abandon_hope.mp3">
     </audio>
-    <Form>
-        <a href="/score">SUBMIT</a>
-    </Form>
+    <form class="hide position-absolute top-50 start-50 translate-middle increase-height">
+        <label class = "text-danger-emphasis"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" required>
+
+        <label class = "text-danger-emphasis"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" required>
+
+        <a href="/start" class="btn btn-success">Submit</a> 
+    </form>
+    <form class="show position-absolute top-50 start-50 translate-middle increase-height">
+        <label class = "text-danger-emphasis" for="signup-username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" required>
+
+        <label class = "text-danger-emphasis"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" required>
+
+        <label class = "text-danger-emphasis"><b>Retype Password</b></label>
+        <input type="password" placeholder="Retype Password" required>
+
+        <a href="/start" class="btn btn-success">Submit</a> 
+    </form>
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <a id ="sign-up" class="btn btn-outline-warning col">Sign Up</a> 
+        <a href="/start" class="btn btn-outline-warning col">Main Menu</a>
+    </div>
 </body>
 </html>
+
+<script>
+    const signUpButton = document.querySelector(`#sign-up`)
+    const hide = document.querySelector(`.hide`)
+    const show = document.querySelector(`.show`)
+
+    signUpButton.addEventListener("click" , () => {
+        hide.style.display = "none"
+        show.style.display = "inline"
+        })
+</script>
