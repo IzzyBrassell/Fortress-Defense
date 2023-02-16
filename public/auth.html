@@ -53,6 +53,16 @@
     const signInSubmit = document.querySelector(`#sign-in-submit`)
 
     // need async function?
+    const SignUp =  async (username, password) => {
+    const response =  await fetch('/signup', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ username, password })
+        });
+        const data = await response.json();
+return data;
+};
+
     signUpSubmit.addEventListener("click", async (event) => {
         event.preventDefault()
         if (
@@ -60,20 +70,25 @@
             signUpPassword.value.length >= 5 &&
             signUpUsername.value.length >= 5
         ){
+            const username = signUpUsername.value.trim();
+            const password = signUpPassword.value.trim();
+                 try {
+            const response = await signUpUser(username, password); 
+                }
             // await signUpPassword.value and signUpUsername.value to post on mysql
             // then redirect to home page or start game
-        } else {
+            } else {
             fail.innerHTML = `Please make sure to have at least 5 characters in your username and password and that you have confirmed your password properly`
         }
-    })
+    });
 
     signUpButton.addEventListener("click" , () => {
             hide.style.display = "none"
             show.style.display = "inline"
-    })
+    });
 
     signInSubmit.addEventListener("click" , () => {
         //await to get information from database
         // then redirect with data to home page or start game
-        })
+        });
 </script>
