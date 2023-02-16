@@ -15,10 +15,10 @@
     <div id = "fail" class="position-absolute top-50 start-50 translate-middle decrease-height"></div>
     <form class="hide position-absolute top-50 start-50 translate-middle increase-height">
         <label class = "text-danger-emphasis"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" required>
+        <input id="username-login" type="text" placeholder="Enter Username" required>
 
         <label class = "text-danger-emphasis"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" required>
+        <input id="password-login" type="password" placeholder="Enter Password" required>
 
         <a id = "sign-in-submit" class="btn btn-success">Submit</a> 
     </form>
@@ -38,61 +38,7 @@
         <a id ="sign-up" class="btn btn-outline-warning col">Sign Up</a> 
         <a href="/start" class="btn btn-outline-warning col">Main Menu</a>
     </div>
+    <script src="./assets/javascript/authentication/login.js"></script>
 </body>
 </html>
 
-<script>
-    const signUpButton = document.querySelector(`#sign-up`)
-    const hide = document.querySelector(`.hide`)
-    const show = document.querySelector(`.show`)
-    const signUpSubmit = document.querySelector(`#sign-up-submit`)
-    const signUpConfirmation = document.querySelector(`#sign-up-confirmation`)
-    const signUpPassword = document.querySelector(`#sign-up-password`)
-    const signUpUsername = document.querySelector(`#sign-up-username`)
-    const fail = document.querySelector(`#fail`)
-    const signInSubmit = document.querySelector(`#sign-in-submit`)
-
-    // need async function?
-    const SignUp =  async (username, password) => {
-    const response =  await fetch('/signup', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ username, password })
-        });
-        const data = await response.json();
-return data;
-};
-
-    signUpSubmit.addEventListener("click", async (event) => {
-        event.preventDefault()
-        if (
-            signUpConfirmation.value.trim() === signUpPassword.value.trim() &&
-            signUpPassword.value.length >= 5 &&
-            signUpUsername.value.length >= 5
-        ){
-            const username = signUpUsername.value.trim();
-            const password = signUpPassword.value.trim();
-                 try {
-            const response = await signUpUser(username, password); 
-                }
-                catch (error) {
-            console.log(error);
-                fail.innerHTML = 'Error signing up. Please try again later.';
-                 }
-            // await signUpPassword.value and signUpUsername.value to post on mysql
-            // then redirect to home page or start game
-            } else {
-            fail.innerHTML = `Please make sure to have at least 5 characters in your username and password and that you have confirmed your password properly`
-        }
-    });
-
-    signUpButton.addEventListener("click" , () => {
-            hide.style.display = "none"
-            show.style.display = "inline"
-    });
-
-    signInSubmit.addEventListener("click" , () => {
-        //await to get information from database
-        // then redirect with data to home page or start game
-        });
-</script>
