@@ -75,6 +75,10 @@ return data;
                  try {
             const response = await signUpUser(username, password); 
                 }
+                catch (error) {
+            console.log(error);
+                fail.innerHTML = 'Error signing up. Please try again later.';
+                 }
             // await signUpPassword.value and signUpUsername.value to post on mysql
             // then redirect to home page or start game
             } else {
