@@ -1,5 +1,5 @@
 const express = require('express')
-const router = require('express').Router();
+const router = express.Router();
 const path = require('path');
 const { Score } = require('../models/score');
 const withAuth = require('../utils/auth');
@@ -43,5 +43,7 @@ router.get('/score', withAuth, async (req, res) => {
   
     res.sendFile(path.join(__dirname, '/../public/auth.html'));
   });
+
+  router.post(`/auth` , )
 
   module.exports = router;
